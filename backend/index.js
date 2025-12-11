@@ -21,6 +21,15 @@ db.connect((err)=>{
     console.log("Connection Successful");
 });
 
+app.set('db',db)
+const authRoutes = require("./routes/auth");
+const settingsRoutes = require("./routes/settings");
+const focusRoutes = require("./routes/focus");
+
+app.use("/api/auth", authRoutes);
+app.use("/settings", settingsRoutes);
+app.use("/focus", focusRoutes);
+
 app.listen(5000,()=>{
     console.log("Server running on port 5000")
 })
