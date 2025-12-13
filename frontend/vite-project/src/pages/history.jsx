@@ -20,14 +20,14 @@ export default function History({ user }) {
   {logs.length === 0 ? (
     <p>No focus sessions yet.</p>
   ) : (
-    <div className="history-container">
+    <div className="session-container">
       {/* Today's session */}
       {(() => {
         const today = new Date().toDateString();
         const todayLog = logs.find(log => new Date(log.date).toDateString() === today);
         if (todayLog) {
           return (
-            <div className="today-session card">
+            <div className="session-card today-session">
               <h3>Today's Focus</h3>
               <p><strong>Focused Minutes:</strong> {todayLog.focus_time}</p>
               <p><strong>Break Minutes:</strong> {todayLog.break_time || 0}</p>
@@ -38,11 +38,11 @@ export default function History({ user }) {
       })()}
 
       {/* Previous days */}
-      <div className="previous-sessions">
+      <div className="session-card">
         {logs
           .filter(log => new Date(log.date).toDateString() !== new Date().toDateString())
           .map(log => (
-            <div key={log.id} className="prev-session card">
+            <div key={log.id} className="session-card prev-session">
               <p><strong>Date:</strong> {new Date(log.date).toLocaleDateString()}</p>
               <p><strong>Focused Minutes:</strong> {log.focus_time}</p>
               <p><strong>Break Minutes:</strong> {log.break_time || 0}</p>
