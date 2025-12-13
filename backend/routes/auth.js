@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcrypt");  // For password hashing (recommended)
+const bcrypt = require("bcrypt");  
 
 // ===== REGISTER =====
 router.post("/register", async (req, res) => {

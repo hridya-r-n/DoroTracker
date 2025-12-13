@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Inter", sans-serif;
-  background: linear-gradient(135deg, #C8D6FF, #E0D4FF); /* Soft pastel gradient */
+  background: linear-gradient(135deg, #C8D6FF, #E0D4FF); 
   min-height: 100vh;
   color: #333;
   display: flex;
@@ -125,7 +125,7 @@ body {
   min-height: 135px;
 }
 
-/* Left accent */
+
 .today-session {
   border-left: 5px solid #6c7ae0;
   width:400px;
@@ -230,11 +230,11 @@ input:focus, select:focus {
   background: rgba(240, 240, 255,0.3);
   backdrop-filter: blur(10px);
   display: flex;
-  justify-content: center; /* center content */
+  justify-content: center; 
   gap: 20px;
 }
 .navbar a {
-  margin-left: 0; /* remove extra spacing */
+  margin-left: 0; 
 }
 
 
@@ -277,7 +277,7 @@ input:focus, select:focus {
   font-family: 'Inter', 'Poppins', sans-serif;
   font-size: 3rem;
   font-weight: 700;
-  color: #A18CD1; /* Soft lavender */
+  color: #A18CD1; 
   text-align: center;
   text-shadow: 2px 2px 6px rgba(0,0,0,0.1);
   letter-spacing: 2px;
