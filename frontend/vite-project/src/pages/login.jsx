@@ -29,6 +29,7 @@ export default function Login({ setUser }) {
   return (
     <div className="page-container">
     <div className="card">
+      <div className="app-name">DoroTracker</div>
       <h2>Login</h2>
 
       <form onSubmit={handleLogin}>

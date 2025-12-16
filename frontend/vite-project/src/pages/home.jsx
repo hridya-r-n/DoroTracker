@@ -6,7 +6,7 @@ export default function Home() {
     <div className="app-name">DoroTracker</div>
 
     <div className="navbar">
-      {/* <Link to="/" className="btn">Home</Link>   */}
+      <Link to="/" className="btn">LogOut</Link>  
       <Link to="/timer" className="btn">Start Timer</Link>
       <Link to="/settings" className="btn">Settings</Link>
       <Link to="/history" className="btn">Focus History</Link>
