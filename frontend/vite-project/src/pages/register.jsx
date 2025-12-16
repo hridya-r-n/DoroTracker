@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate,Link } from "react-router-dom";
+import logo from '../assets/logo_doro.png'
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -29,6 +30,7 @@ export default function Register() {
   return (
      <div className="page-container">
     <div className="card">
+       <img src={logo} alt="App Logo" className="app-logo" />
       <div className="app-name">DoroTracker</div>
       <h2>Create Account</h2>
 

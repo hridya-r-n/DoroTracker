@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import logo from '../assets/logo_doro.png'
 export default function Home() {
     return (
         <div className="page-container">
   <div className="card">
+     <img src={logo} alt="App Logo" className="app-logo" />
     <div className="app-name">DoroTracker</div>
 
     <div className="navbar">

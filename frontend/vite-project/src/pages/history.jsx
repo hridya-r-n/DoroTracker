@@ -13,6 +13,16 @@ export default function History({ user }) {
       .then((data) => setLogs(data))
       .catch((err) => console.error("Failed to fetch history:", err));
   }, [user]);
+  const getTimeInterval = (startDate, durationMinutes) => {
+  const start = new Date(startDate);
+  const end = new Date(start.getTime() + durationMinutes * 60000);
+
+  const format = d =>
+    d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+  return `${format(start)} – ${format(end)}`;
+};
+
 
   return (
   <div className="page-container">
@@ -20,7 +30,7 @@ export default function History({ user }) {
   {logs.length === 0 ? (
     <p>No focus sessions yet.</p>
   ) : (
-    <div className="session-container">
+<div className="session-container">
   {/* Today's session */}
   {(() => {
     const today = new Date().toDateString();
@@ -34,20 +44,27 @@ export default function History({ user }) {
         minute: "2-digit"
       });
 
-      return (
-        <div className="session-card today-session">
-          <h3>Today's Focus</h3>
-          <p><strong>Started At:</strong> {startTime}</p>
-          <p><strong>Focused Minutes:</strong> {todayLog.focus_time}</p>
-          <p><strong>Break Minutes:</strong> {todayLog.break_time || 0}</p>
-        </div>
-      );
-    }
-    return null;
+                return (
+                  <div className="session-card">
+                    <h3>Today's Focus</h3>
+                    <div className="today-session">
+                    <p>
+                      <strong>Session Time:</strong>{" "}
+                      {getTimeInterval(todayLog.date, todayLog.focus_time)}
+                    </p>
+                    <p><strong>Focused Minutes:</strong> {todayLog.focus_time}</p>
+                    <p><strong>Break Minutes:</strong> {todayLog.break_time || 0}</p>
+                    </div>
+                  </div>
+                  
+                );
+              }
+              return null;
   })()}
 
   {/* Previous days */}
   <div className="session-card">
+     <h3>Previous Sessions</h3>
     {logs
       .filter(
         log => new Date(log.date).toDateString() !== new Date().toDateString()
@@ -57,16 +74,14 @@ export default function History({ user }) {
 
         return (
           <div key={log.id} className="session-card prev-session">
+           
             <p>
               <strong>Date:</strong>{" "}
               {dateObj.toLocaleDateString()}
             </p>
             <p>
-              <strong>Started At:</strong>{" "}
-              {dateObj.toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit"
-              })}
+              <strong>Session Time:</strong>{" "}
+              {getTimeInterval(log.date, log.focus_time)}
             </p>
             <p><strong>Focused Minutes:</strong> {log.focus_time}</p>
             <p><strong>Break Minutes:</strong> {log.break_time || 0}</p>
