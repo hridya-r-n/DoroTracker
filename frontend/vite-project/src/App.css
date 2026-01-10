@@ -274,7 +274,7 @@ input:focus, select:focus {
   .card { padding: 20px; }
 }
 
-/* App name style */
+/* App name*/
 .app-name {
   font-family: 'Inter', 'Poppins', sans-serif;
   font-size: 3rem;

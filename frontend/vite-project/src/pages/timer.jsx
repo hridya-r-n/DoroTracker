@@ -10,6 +10,12 @@ export default function Timer({ user }) {
   const timerRef = useRef(null);
   const navigate = useNavigate();
 
+  const playAlert=()=>{
+    const audio=new Audio("/alert.mp3");
+    audio.volume=0.4;
+    audio.play().catch(()=>{});
+  }
+
   // Fetch user's settings
   useEffect(() => {
     if (!user) return;
@@ -31,6 +37,7 @@ export default function Timer({ user }) {
         setSecondsLeft((prev) => {
           if (prev <= 1) {
             clearInterval(timerRef.current);
+            playAlert();
             saveFocusSession();
             setIsFocus(!isFocus);
             setSecondsLeft((!isFocus ? focusMin : breakMin) * 60);
