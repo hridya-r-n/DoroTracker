@@ -62,7 +62,7 @@ export default function Timer({ user }) {
   };
 
   const saveFocusSession = async () => {
-    if (!user || !isFocus) return; // only save completed focus sessions
+    if (!user || !isFocus) return; 
 
     await fetch("http://localhost:5000/focus", {
       method: "POST",
